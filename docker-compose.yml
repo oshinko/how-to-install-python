@@ -1,0 +1,35 @@
+version: '3.7'
+
+services:
+  amzn:
+    build:
+      args:
+        - VERSION
+      context: .
+      dockerfile: amzn.Dockerfile
+    container_name: pyins-amzn
+    tty: true
+    volumes:
+      - .:/app
+
+  centos:
+    build:
+      args:
+        - VERSION
+      context: .
+      dockerfile: centos.Dockerfile
+    container_name: pyins-centos
+    tty: true
+    volumes:
+      - .:/app
+
+  debian:
+    build:
+      args:
+        - VERSION
+      context: .
+      dockerfile: debian.Dockerfile
+    container_name: pyins-debian
+    tty: true
+    volumes:
+      - .:/app
