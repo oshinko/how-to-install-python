@@ -34,8 +34,8 @@ elif type yum > /dev/null 2>&1; then
 
   # Python requires
   yum install -y \
-    gdbm-devel \
     bzip2-devel \
+    gdbm-devel \
     libffi-devel \
     openssl11-devel \
     readline-devel \
@@ -50,9 +50,9 @@ else
   exit 1
 fi
 
-curl -O https://www.python.org/ftp/python/$version/Python-$version.tgz
 rm -rf Python-$version
-tar xvf Python-$version.tgz
+curl -o - https://www.python.org/ftp/python/$version/Python-$version.tgz \
+  | tar vzx
 cd Python-$version
 
 if $epel; then
